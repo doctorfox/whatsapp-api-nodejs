@@ -308,6 +308,12 @@ class WhatsAppInstance {
         sock?.ev.on('messages.update', async (messages) => {
             //console.log('messages.update')
             //console.dir(messages);
+            const webhookData = {
+                key: m.find(x=>x!==undefined).key,
+                update: m.find(x=>x!==undefined).update
+            }
+            if (['all', 'messages', 'messages.update'].some((e) => config.webhookAllowedEvents.includes(e)))
+            await this.SendWebhook('message.update', webhookData, this.key)
         })
         sock?.ws.on('CB:call', async (data) => {
             if (data.content) {
