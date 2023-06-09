@@ -308,6 +308,7 @@ class WhatsAppInstance {
         sock?.ev.on('messages.update', async (messages) => {
             //console.log('messages.update')
             //console.dir(messages);
+            //const [msg] = m;msg.key;msg.update
             const webhookData = {
                 key: m.find(x=>x!==undefined).key,
                 update: m.find(x=>x!==undefined).update
