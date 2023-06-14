@@ -305,7 +305,7 @@ class WhatsAppInstance {
             })
         })
 
-        sock?.ev.on('messages.update', async (messages) => {
+        sock?.ev.on('messages.update', async (m) => {
             //console.log('messages.update')
             //console.dir(messages);
             //const [msg] = m;msg.key;msg.update
